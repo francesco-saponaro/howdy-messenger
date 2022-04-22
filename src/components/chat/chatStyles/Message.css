@@ -2,7 +2,7 @@
 .message {
     position: relative;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     flex-direction: row-reverse;
     padding-top:10px;
     padding-bottom:10px;

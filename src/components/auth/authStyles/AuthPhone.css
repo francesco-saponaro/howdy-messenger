@@ -38,7 +38,7 @@
 
 .phone__chat--message-container {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     position: relative;
 }
 

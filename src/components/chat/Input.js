@@ -157,9 +157,6 @@ const Input = () => {
         pickerRef.current.style.display = pickerRef.current.style.display === 'none' ? 'block' : 'none'; 
     }
 
-    // State to contain current cursor position
-    const [cursorPosition, setCursorPosition] = useState()
-
     // Function running on clicking a picker Emoji
     const onEmojiClick = (e, emojiObject) => {
         // We grab the value both on the left and right side of cursor position 

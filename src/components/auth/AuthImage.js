@@ -65,7 +65,7 @@ const AuthImage = ({ file, setFile }) => {
                 <div className='auth-form__imgPreview'>
                     <img src={preview} alt='preview' />
                     <span className='auth-form__imgDelete' onClick={handleDelete}>
-                        <img src='images/delete-icon.svg' />
+                        <img src='images/delete-icon.svg' alt='delete icon' />
                     </span>
                 </div>
             }

@@ -73,7 +73,7 @@ const Login = () => {
     const handleFormChange = (field, targetValue) => {
         if(field === 'email') {
             setEmail(targetValue);
-            !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(targetValue) ? setEmailError(true) : 
+            !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(targetValue) ? setEmailError(true) : 
                                                                                  setEmailError(false);
         }
 
