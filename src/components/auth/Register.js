@@ -139,7 +139,7 @@ const Register = () => {
         } catch(err) {
             // If error filter it through the regex, setError state to it and set
             // open state to true.
-            ErrorRegex(err, setError);
+            //ErrorRegex(err, setError);
             setOpen(true);
         } 
         setLoading(false);
