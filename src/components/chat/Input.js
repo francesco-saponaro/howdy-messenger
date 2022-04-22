@@ -14,7 +14,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { useAuth } from '../../authContext/AuthContext';
 
 // Error regex function import
-import ErrorRegex from '../../utils/ErrorRegex';
+//import ErrorRegex from '../../utils/ErrorRegex';
 
 // Installed Packages imports
 import Picker from 'emoji-picker-react';
@@ -92,7 +92,7 @@ const Input = () => {
             } catch(err) {
                 // If error filter it through the regex, setError state to it and set
                 // open state to true.
-                ErrorRegex(err, setError);
+                //ErrorRegex(err, setError);
                 setOpen(true);
             }
         }
@@ -133,10 +133,9 @@ const Input = () => {
 
             await addDoc(q, payload);
         } catch(err) {
-            console.log('sdsds')
             // If error filter it through the regex, setError state to it and set
             // open state to true.
-            ErrorRegex(err, setError);
+            //ErrorRegex(err, setError);
             setOpen(true);
         }
     }

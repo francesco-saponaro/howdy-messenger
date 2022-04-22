@@ -12,7 +12,7 @@ import { updateDoc, doc } from "firebase/firestore";
 import { useAuth } from '../../authContext/AuthContext';
 
 // Error regex function import
-import ErrorRegex from '../../utils/ErrorRegex';
+//import ErrorRegex from '../../utils/ErrorRegex';
 
 // Component imports
 import Date from '../layouts/Date'
@@ -86,7 +86,7 @@ const Message = forwardRef(({ messageObj, chatMessages, index, messageId }, ref)
             } catch(err) {
                 // If error filter it through the regex, setError state to it and set
                 // open state to true.
-                ErrorRegex(err, setError);
+                //ErrorRegex(err, setError);
                 setOpen(true);
             }
         } else {
@@ -107,7 +107,7 @@ const Message = forwardRef(({ messageObj, chatMessages, index, messageId }, ref)
             } catch(err) {
                 // If error filter it through the regex, setError state to it and set
                 // open state to true.
-                ErrorRegex(err, setError);
+                //ErrorRegex(err, setError);
                 setOpen(true);
             }
         }

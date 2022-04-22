@@ -25,7 +25,7 @@ import { useAuth } from '../../authContext/AuthContext';
 import AuthImage from './AuthImage';
 import AuthPhone from './AuthPhone';
 // Error regex function import
-import ErrorRegex from '../../utils/ErrorRegex';
+//import ErrorRegex from '../../utils/ErrorRegex';
 
 // MaterialUI imports
 import { TextField, Snackbar, InputAdornment, IconButton } from '@material-ui/core';
@@ -86,7 +86,7 @@ const Register = () => {
             targetValue === '' ? setUsernameError(true) : setUsernameError(false);
         }
 
-    
+     
 
         if(field === 'password') {
             setPassword(targetValue);
@@ -135,7 +135,7 @@ const Register = () => {
         } catch(err) {
             // If error filter it through the regex, setError state to it and set
             // open state to true.
-            ErrorRegex(err, setError);
+            //ErrorRegex(err, setError);
             setOpen(true);
         } 
         setLoading(false);

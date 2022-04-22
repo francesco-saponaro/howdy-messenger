@@ -18,7 +18,7 @@ import { useAuth } from '../../authContext/AuthContext';
 // Component imports
 import AuthPhone from './AuthPhone';
 // Error regex function import
-import ErrorRegex from '../../utils/ErrorRegex'
+//import ErrorRegex from '../../utils/ErrorRegex'
 
 // MaterialUI imports
 import { TextField, Snackbar, InputAdornment, IconButton } from '@material-ui/core';
@@ -71,7 +71,7 @@ const Login = () => {
     // OnChange function that will set both the state of its target 
     // and, depending on its value, its error state
     const handleFormChange = (field, targetValue) => {
-        
+       
 
         if(field === 'password') {
             setPassword(targetValue);
@@ -102,7 +102,7 @@ const Login = () => {
         } catch(err) {
             // If error filter it through the regex, setError state to it and set
             // open state to true.
-            ErrorRegex(err, setError);
+            //ErrorRegex(err, setError);
             setOpen(true);
         }
         setLoading(false);
