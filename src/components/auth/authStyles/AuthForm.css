@@ -52,11 +52,14 @@
 
 .auth-form__imgPreview {
     width: 70px;
+    height: 70px;
     position: relative;
 }
 
 .auth-form__imgPreview img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 50%;
 }
 
