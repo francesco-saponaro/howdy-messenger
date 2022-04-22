@@ -1,0 +1,56 @@
+.left-background {
+    position:fixed;
+    height:40vh;
+    width:60rem;
+    background:linear-gradient(to top, var(--blue) 60%, var(--dodger-blue));
+    border-radius:0 100% 0 0;
+    left:0;
+    bottom:0;
+}
+
+.right-background {
+    position:fixed;
+    height:40vh;
+    width:60rem;
+    background:linear-gradient(to top, var(--blue) 60%, var(--dodger-blue));
+    border-radius:0 0 0 100%;
+    right:0;
+    top:0;
+}
+
+/* Media queries */
+@media only screen and (max-width: 850px) {
+    .left-background {
+        height:50vh;
+        width:45rem;
+    }
+    
+    .right-background {
+        height:50vh;
+        width:45rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .left-background {
+        height:40vh;
+        width:40rem;
+    }
+    
+    .right-background {
+        height:40vh;
+        width:40rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .left-background {
+        height:50vh;
+        width:30rem;
+    }
+    
+    .right-background {
+        height:50vh;
+        width:30rem;
+    }
+}

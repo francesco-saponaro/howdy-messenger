@@ -1,0 +1,244 @@
+/* Message card */
+.message {
+    position: relative;
+    display: flex;
+    align-items: end;
+    flex-direction: row-reverse;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin:10px 10px 30px 10px;
+    width:fit-content;
+}
+
+.message__user {
+    margin-left: auto;
+    flex-direction: row;
+}
+
+.message__card {
+    background-color: var(--marian-blue)!important;
+    color:var(--medium-blue)!important;
+    border-radius: 20px!important;
+    word-break: break-word;
+    margin-right: 100px;
+    max-width: 700px;
+}
+
+.message__card--user {
+    background-color: var(--blue)!important;
+    color: white!important;
+    border-radius: 20px!important;
+    word-break: break-word;
+    margin-left: 100px;
+    max-width: 700px;
+}
+
+.message__image {
+    margin-right: 100px;
+    max-width:200px;
+    height: 200px;
+}
+
+.message__image--user {
+    margin-left: 100px;
+    max-width:200px;
+    height: 200px;
+}
+
+.message__image img, .message__image--user img {
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.MuiCardContent-root:last-child {
+    padding-bottom: 16px!important;
+}
+
+.message .message__card--avatar {
+    width: 30px!important;
+    height: 30px!important;
+    margin-right: 10px;
+}
+
+.message__user .message__card--avatar {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.message__card--like {
+    position: absolute;
+    bottom: 2px;
+    right: 87px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--marian-blue);
+    width: 27px;
+    height: 27px;
+    border-radius: 50px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.message__user .message__card--like {
+    left: 87px;
+    right: auto;
+}
+
+.message__card--like-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message__card--like-icon {
+    width: 50%;
+}
+
+.message__card--like-count {
+    position: absolute;
+    top:10px;
+    left:18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--marian-blue);
+    width: 13px;
+    height: 13px;
+    border-radius: 50px;
+    border: 1px solid white;
+    font-size: 8px;
+    font-weight: 500;
+    color:#F50008;
+}
+
+.message__user .message__card--like-count {
+    right:18px;
+    left: auto;
+}
+
+.message__card--username {
+    font-size: 12px;
+    position: absolute;
+    top: -9px;
+    color: rgba(0, 0, 0, 0.40)
+}
+
+.message .message__card--username {
+    left: 45px;
+}
+
+.message__user .message__card--username {
+    right: 45px;
+    left: auto;
+}
+
+.message__date {
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 30px;
+    color: rgba(0, 0, 0, 0.40);
+}
+
+/* Media queries */
+@media only screen and (max-width: 1000px) {
+    .message__card {
+        max-width: 600px;
+    }
+    
+    .message__card--user {
+        max-width: 600px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .message__card {
+        max-width: 500px;
+    }
+    
+    .message__card--user {
+        max-width: 500px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .message__card {
+        max-width: 400px;
+    }
+    
+    .message__card--user {
+        max-width: 400px;
+    }
+
+    .message__card--message {
+        font-size: 16px!important;
+    }
+
+    .message__date {
+        font-size: 14px;
+    }
+
+    .message__card--like {
+        bottom: 5px;
+        right: 92px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .message__user .message__card--like {
+        left: 92px;
+    }
+
+    .message__card--like-count {
+        top:8px;
+        left:13px;
+        width: 10px;
+        height: 10px;
+        font-size: 6px;
+        font-weight: 500;
+    }
+
+    .message__user .message__card--like-count {
+        right:13px;
+    }
+
+    .message .message__card--avatar {
+        width: 22px!important;
+        height: 22px!important;
+        margin-right: 6px;
+    }
+
+    .message__user .message__card--avatar {
+        width: 22px!important;
+        height: 22px!important;
+        margin-left: 6px;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .message__card--username {
+        font-size: 10px;
+        top: -7px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .message__date {
+        margin-top: 40px;
+        margin-bottom: 25px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .message__card--message {
+        font-size: 14px!important;
+    }
+
+    .message__date {
+        font-size: 12px;
+    }
+}

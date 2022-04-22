@@ -1,0 +1,111 @@
+/* Authentication forms */
+.auth-form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+    background: #F0F8FF;
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
+}
+
+.auth-form__header {
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 20px;
+    color: var(--boeing-blue);
+}
+
+.auth-form__textFields {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form__textField {
+    margin-bottom: 10px!important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color:var(--dark-blue)!important;
+}
+
+.auth-form__imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.auth-form__cameraLabel {
+    cursor: pointer;
+}
+
+.auth-form__cameraLabel span {
+    font-size: 14px;
+}
+
+.auth-form__cameraIcon {
+    color:var(--boeing-blue)!important;
+}
+
+.auth-form__imgPreview {
+    width: 70px;
+    position: relative;
+}
+
+.auth-form__imgPreview img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.auth-form__imgDelete {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    cursor:pointer;
+}
+
+.auth-form__submitBtn {
+    width:100%;
+    border: none;
+    padding: 18.5px 14px;
+    border-radius: 4px;
+    font-size:1rem;
+    background:var(--boeing-blue);
+    color: white;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.auth-form__submitBtn:disabled {
+    color: rgba(0, 0, 0, 0.26)!important;
+    background-color: var(--lightsteel-blue);
+    cursor: default;
+}
+
+.auth-form__cta {
+    font-size: 14px;
+}
+
+.auth-form__cta a {
+    color: var(--boeing-blue);
+}
+
+/* Media queries */
+@media only screen and (max-width: 500px) {
+    .auth-form__container {
+        width: 300px;
+    }
+
+    .auth-form__imgContainer {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .auth-form__container {
+        width: 275px;
+    }
+}

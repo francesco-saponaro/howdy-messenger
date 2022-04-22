@@ -1,0 +1,26 @@
+/* Authentication container */
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+/* Media queries */
+@media only screen and (min-width: 767px) {
+    .auth-container {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .auth-container {
+        flex-direction: column-reverse;
+        padding: 100px 0;
+    }
+}

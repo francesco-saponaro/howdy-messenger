@@ -1,0 +1,55 @@
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 100;
+    width: 100%;
+    font-size: 26px;
+    background: linear-gradient(to right, var(--blue) 60%, var(--dodger-blue));
+    padding: .5rem .8rem;
+    color: white;
+    text-align: center;
+}
+
+.logout-button {
+    position: absolute;
+    top:20px;
+    right:25px;
+    cursor: pointer;
+}
+
+.app-container__messages {
+    padding: 0 10px;
+    margin-bottom: 160px;
+    margin-top: 110px;
+}
+
+/* Media queries */
+@media only screen and (min-width: 1000px) {
+    .logout-button {
+       right:40px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .app-container__messages {
+        margin-bottom: 135px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .app-container__messages {
+        margin-bottom: 125px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .app-container__messages {
+        margin-bottom: 115px;
+    }
+
+    .logout-button {
+        font-size: 30px!important;
+        top:23px;
+    }
+}

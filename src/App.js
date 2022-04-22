@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// Css imports
+import './Base.css';
 
+// React imports
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// Component imports
+import Home from './components/chat/Home';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+
+// Protected Route import
+import ProtectedRoute from './utils/ProtectedRoute';
+
+// Context provider import
+import { AuthContextProvider } from './authContext/AuthContext';
+
+// App component
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        {/* Context provider */}
+        <AuthContextProvider>
+          <Routes>
+            {/* Protected routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route path='/' element={<Home />} />
+            </Route>
+            {/* Auth routes */}
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+          </Routes>
+        </AuthContextProvider>
+      </div>
+    </BrowserRouter>
   );
 }
 

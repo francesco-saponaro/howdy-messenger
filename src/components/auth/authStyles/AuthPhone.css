@@ -1,0 +1,155 @@
+/* Phone display */
+.phone {
+    width:250px;
+    min-height:450px;
+    border: 8px solid white;
+    border-radius: 30px;
+    overflow-x:hidden;
+    background: var(--alice-blue);
+    z-index:10;
+}
+
+.phone__header {
+    background: linear-gradient(to right, var(--blue) 60%, var(--dodger-blue));
+    padding: .5rem .8rem;
+    color: white;
+    text-align: center;
+}
+
+.phone__chat {
+    display: flex;
+    flex-direction: column;
+    padding:12px 10px;
+}
+
+.phone__chat--guest {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.phone__chat--user {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.phone__chat--message-container {
+    display: flex;
+    align-items: end;
+    position: relative;
+}
+
+.phone__chat--guest-image {
+    width: 15px;
+    margin-right: 5px;
+}
+
+.phone__chat--user-image {
+    width: 15px;
+    margin-left: 5px;
+}
+
+.phone__chat--guest-image img, .phone__chat--user-image img {
+    height: 15px;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.phone__chat p {
+    border-radius: 12px;
+    max-width:8.2rem;
+    font-size: 9px;
+    padding:10px;
+    width: fit-content;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.phone__chat--guest p {
+    background:var(--marian-blue);
+    color:var(--medium-blue);
+}
+
+.phone__chat--user p {
+    background:var(--blue);
+    color: white;
+}
+
+.phone__chat-emoji {
+    width: 11px;
+    height: 8px;
+    padding-left: 3px;
+}
+
+.phone__chat--imgContainer {
+    margin-top: 8px;
+    width: 40px;
+    height: 40px;
+}
+
+.phone__chat--imgContainer img {
+    width: 100%;
+    border-radius: 9px;
+}
+
+.phone__chat-like {
+    position: absolute;
+    bottom: -4px;
+    right: -6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--marian-blue);
+    width: 13px;
+    height: 13px;
+    border-radius: 50px;
+    border: 1px solid white;
+    z-index: 1000;
+}
+
+.phone__chat--user .phone__chat-like {
+    left: -6px;
+}
+
+.phone__chat--like-icon {
+    width: 50%;
+}
+
+.phone__form {
+    position: relative;
+    background-color: white;
+    margin: 0 12px 15px 12px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.phone__form--input {
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    padding: 10px 0 10px 20px;
+    pointer-events: none;
+    font-size: 9px;
+}
+
+.phone__form--icon-submit {
+    color: var(--dark-blue);
+}
+
+.phone__form--icons {
+    font-size: 16px!important;
+    color: rgba(0, 0, 0, 0.26)!important;
+    margin-right: 5px;
+}
+
+/* Media queries */
+@media only screen and (max-width: 767px) {
+    .phone {
+        margin-top: 50px;
+    }
+}
