@@ -86,11 +86,7 @@ const Register = () => {
             targetValue === '' ? setUsernameError(true) : setUsernameError(false);
         }
 
-        if(field === 'email') {
-            setEmail(targetValue);
-            !/^\S+@\S+$/.test(targetValue) ? setEmailError(true) : 
-                                                                                 setEmailError(false);
-        }
+    
 
         if(field === 'password') {
             setPassword(targetValue);
