@@ -49,6 +49,7 @@
 
 .message__image img, .message__image--user img {
     height: 100%;
+    width: 100%;
     object-fit: contain;
     border-radius: 20px;
 }

@@ -143,7 +143,9 @@ const Message = forwardRef(({ messageObj, chatMessages, index, messageId }, ref)
             {/* If image display it */}
             {messageObj.imageUrl && 
                 <div className={isLoggedInUser ? 'message__image--user' : 'message__image'}>
-                    <img src={messageObj.imageUrl} alt='message pic' />
+                    <a href={messageObj.imageUrl} target="_blank">
+                        <img src={messageObj.imageUrl} alt='message pic' target="_blank" />
+                    </a>
                 </div>
             }
 
@@ -159,7 +161,9 @@ const Message = forwardRef(({ messageObj, chatMessages, index, messageId }, ref)
             }
 
             {/* Message user avatar */}
-            <Avatar className='message__card--avatar' alt="user-avatar" src={messageObj.avatar} />
+            <a href={messageObj.avatar} target="_blank">
+                <Avatar className='message__card--avatar' alt="user-avatar" src={messageObj.avatar} target="_blank" />
+            </a>
 
             {/* Message likes icon and count */}
             {/* Display either icons depending on if the message has at least 1 like */}

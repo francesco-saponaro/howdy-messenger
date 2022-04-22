@@ -152,9 +152,22 @@ const Input = () => {
     // Ref to be assigned to Emoji picker div, in order to toggle its visibility
     const pickerRef = useRef();
     // Onclick function on emoji icon button to toggle Emoji picker visibility
-    const showEmojiPicker = () => {
-        pickerRef.current.style.display = pickerRef.current.style.display === 'none' ? 'block' : 'none'; 
+    const showEmojiPicker = (e) => {
+        pickerRef.current.style.display = pickerRef.current.style.display === 'none' ? 'inline-block' : 'none'; 
     }
+
+    // mousedown function to be binded to document to toggle Emoji picker on
+    // clicking outside of it
+    const handleOutsideClicks = (e) => {
+        if(pickerRef.current.style.display === 'inline-block' && !pickerRef.current.contains(e.target)) {
+            pickerRef.current.style.display = 'none';
+        }
+    }
+
+    useEffect(() => {
+        // Bind the event listener to document and function
+        document.addEventListener("mousedown", handleOutsideClicks);        
+    }, []);
 
     // Function running on clicking a picker Emoji
     const onEmojiClick = (e, emojiObject) => {
@@ -216,7 +229,7 @@ const Input = () => {
                 {/* Emoji picker icon */}
                 <InsertEmoticonIcon fontSize="large"
                                     className='chat__form--icon' 
-                                    onClick={showEmojiPicker} 
+                                    onClick={showEmojiPicker}
                 />
 
                 {/* Submit button */}
