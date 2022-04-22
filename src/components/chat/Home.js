@@ -5,9 +5,6 @@ import './chatStyles/Chat.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom'
 
-// Import installed package to display custom titles
-import { Helmet } from 'react-helmet'
-
 // Firebase methods imports
 import { db } from '../../firebase';
 import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
@@ -91,10 +88,7 @@ const Home = () => {
     }
 
     return(
-        <>
-        {/* Custom title */}
-        <Helmet><title>Howdy</title></Helmet>
-        
+        <>        
         <div className='app-container'>
             {/* Error snackbar alert */}
             {open &&
