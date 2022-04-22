@@ -21,36 +21,30 @@
 /* Media queries */
 @media only screen and (max-width: 850px) {
     .left-background {
-        height:50vh;
         width:45rem;
     }
     
     .right-background {
-        height:50vh;
         width:45rem;
     }
 }
 
 @media only screen and (max-width: 700px) {
     .left-background {
-        height:40vh;
         width:40rem;
     }
     
     .right-background {
-        height:40vh;
         width:40rem;
     }
 }
 
 @media only screen and (max-width: 500px) {
     .left-background {
-        height:50vh;
         width:30rem;
     }
     
     .right-background {
-        height:50vh;
         width:30rem;
     }
 }

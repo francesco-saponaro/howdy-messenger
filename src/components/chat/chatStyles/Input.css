@@ -26,6 +26,7 @@ textarea {
     font-family: 'Rubik', sans-serif;
     max-height:120px;
     border: none;
+    outline:none;
     background: transparent;
     width: 100%;
     font-size: 16px;
