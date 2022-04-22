@@ -86,7 +86,11 @@ const Register = () => {
             targetValue === '' ? setUsernameError(true) : setUsernameError(false);
         }
 
-     
+        if(field === 'email') {
+            setEmail(targetValue);
+            !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(targetValue) ? setEmailError(true) : 
+                                                                                 setEmailError(false);
+        }
 
         if(field === 'password') {
             setPassword(targetValue);
@@ -135,7 +139,7 @@ const Register = () => {
         } catch(err) {
             // If error filter it through the regex, setError state to it and set
             // open state to true.
-            //ErrorRegex(err, setError);
+            ErrorRegex(err, setError);
             setOpen(true);
         } 
         setLoading(false);

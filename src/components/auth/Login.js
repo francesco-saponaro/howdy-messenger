@@ -71,7 +71,11 @@ const Login = () => {
     // OnChange function that will set both the state of its target 
     // and, depending on its value, its error state
     const handleFormChange = (field, targetValue) => {
-       
+        if(field === 'email') {
+            setEmail(targetValue);
+            !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(targetValue) ? setEmailError(true) : 
+                                                                                 setEmailError(false);
+        }
 
         if(field === 'password') {
             setPassword(targetValue);
