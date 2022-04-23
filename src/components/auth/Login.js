@@ -10,7 +10,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // Import installed package to display custom titles
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
+
+// Firebase methods imports
+import { db }  from '../../firebase';
+import { updateDoc, doc, query, where, collection, getDocs } from "firebase/firestore";
 
 // Use context custom hook import
 import { useAuth } from '../../authContext/AuthContext';
@@ -83,6 +87,21 @@ const Login = () => {
         }
     }
 
+    const handleOnline = async () => {
+        const payload = {
+            isOnline: true
+        }
+
+        const colRef = collection(db, 'users');
+        const q = query(colRef, where("uid", "==", user.uid))
+        const userDocs = await getDocs(q)
+        const docs = userDocs.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        for(let rightDoc of docs) {
+            await updateDoc(doc(db, 'users', rightDoc.id), payload);
+        }
+    }
+
     // On page load and everytime theres a change in the user state, redirect user
     // to home page. 
     // This is both to redirect the user when it logs in and to prevent the user to access
@@ -90,6 +109,7 @@ const Login = () => {
     useEffect(() => {
         if(user) {
             navigate('/');
+            handleOnline();
         };
     }, [user, navigate])
 

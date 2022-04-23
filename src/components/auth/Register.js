@@ -13,10 +13,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
 // Firebase methods imports
-import { storage } from '../../firebase';
+import { storage, db } from '../../firebase';
 import { auth } from '../../firebase';
 import { updateProfile } from 'firebase/auth'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 // Use context custom hook import
 import { useAuth } from '../../authContext/AuthContext';
@@ -136,6 +137,16 @@ const Register = () => {
             // photoURL which can be null as declared above or retrieved from the location via the getDownloadUrl
             // if an image was in fact uploaded. 
             await updateProfile(auth.currentUser, {displayName:username, photoURL});
+
+            const q = await collection(db, 'users')
+            const payload = {
+                username: auth.currentUser.displayName,
+                uid: auth.currentUser.uid,
+                avatar: auth.currentUser.photoURL,
+                isOnline: true
+            }
+
+            await addDoc(q, payload);
         } catch(err) {
             // If error filter it through the regex, setError state to it and set
             // open state to true.

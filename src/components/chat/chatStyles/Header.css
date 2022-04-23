@@ -1,0 +1,72 @@
+.header-container {
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 100;
+    width: 100%;
+    font-size: 26px;
+    background: linear-gradient(to right, var(--blue) 60%, var(--dodger-blue));
+    padding-top: .5rem;
+    color: white;
+    text-align: center;
+}
+
+.logout-button {
+    position: absolute;
+    top:20px;
+    right:25px;
+    cursor: pointer;
+}
+
+.online__users {
+    background-color: var(--marian-blue);
+    margin-top: .5rem;
+    padding: .5rem 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.online__users--img-container {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.online__users--img-container img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.online__users--online-icon {
+    position: absolute;
+    bottom: -1px;
+    left: 17px;
+    width: 6px;
+    height: 6px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+/* Media queries */
+@media only screen and (min-width: 1000px) {
+    .logout-button {
+       right:40px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .online__users--img-container {
+        height: 22px;
+        width: 22px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .logout-button {
+        font-size: 30px!important;
+        top:23px;
+    }
+}

@@ -56,7 +56,9 @@ export const AuthContextProvider = ({ children }) => {
 
     // Return the context with the provider attached, providing all auth methods above and the user state
     // so that they can be used globally throughout the app via the useContext hook below
-    return <authContext.Provider value={{ user, signup, login, logout, loading }}>{children}</authContext.Provider>;
+    return <authContext.Provider value={{ user, signup, login, logout, loading }}>
+               {children}
+           </authContext.Provider>;
 }
 
 // Custom hook containing the react useContext hook, with which you cam call all methods in the context

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 // Firebase methods imports
 import { db } from '../../firebase';
-import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
+import { query, collection, orderBy, onSnapshot, updateDoc, doc, where, getDocs } from "firebase/firestore";
 
 // Use context custom hook import
 import { useAuth } from '../../authContext/AuthContext';
@@ -46,7 +46,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     // Extract user state and logout method from context
-    const { logout } = useAuth();
+    const { logout, user } = useAuth();
 
     // Messages state
     const [messages, setMessages] = useState([]);
@@ -65,7 +65,7 @@ const Home = () => {
         onSnapshot(q, (snapshot) => {
             setMessages(snapshot.docs.map(doc => ({id:doc.id, data:doc.data()})));
         });
-      }, [])
+    }, [])
 
     // On page load scroll to targeted ref.
     // Also pass the messages state to the listener array so everytime theres a change in
@@ -77,8 +77,21 @@ const Home = () => {
     // Logout function
     const handleLogout = async () => {
         try {
+            const payload = {
+                isOnline: false
+            }
+    
+            const colRef = collection(db, 'users');
+            const q = query(colRef, where("uid", "==", user.uid))
+            const userDocs = await getDocs(q)
+            const docs = userDocs.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    
+            for(let rightDoc of docs) {
+                await updateDoc(doc(db, 'users', rightDoc.id), payload);
+            }
+
             await logout();
-            navigate('/login')
+            navigate('/login');
         } catch(err) {
             // If error filter it through the regex, setError state to it and set
             // open state to true.
