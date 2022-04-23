@@ -1,6 +1,7 @@
 // Css imports
 import './chatStyles/Header.css';
 
+// React imports
 import React from 'react'
 
 // Component imports
@@ -19,6 +20,7 @@ const Header = ({ handleLogout }) => {
         {/* Logout button */}
         <ExitToAppIcon fontSize='large' className='logout-button' onClick={handleLogout} />
 
+        {/* Online users div */}
         <OnlineUsers />
     </header>
   )

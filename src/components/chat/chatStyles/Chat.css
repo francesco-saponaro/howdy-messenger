@@ -1,16 +1,10 @@
 .app-container__messages {
     padding: 0 10px;
-    margin-bottom: 160px;
-    margin-top: 110px;
+    margin-bottom: 135px;
+    margin-top: 145px;
 }
 
 /* Media queries */
-@media only screen and (max-width: 750px) {
-    .app-container__messages {
-        margin-bottom: 135px;
-    }
-}
-
 @media only screen and (max-width: 600px) {
     .app-container__messages {
         margin-bottom: 125px;

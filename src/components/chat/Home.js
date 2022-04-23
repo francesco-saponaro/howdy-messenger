@@ -12,9 +12,6 @@ import { query, collection, orderBy, onSnapshot, updateDoc, doc, where, getDocs 
 // Use context custom hook import
 import { useAuth } from '../../authContext/AuthContext';
 
-// Error regex function import
-//import ErrorRegex from '../../utils/ErrorRegex';
-
 // Component imports
 import Header from './Header';
 import Input from './Input';
@@ -74,18 +71,23 @@ const Home = () => {
         bottomScroll.current?.scrollIntoView();
     }, [messages])
 
-    // Logout function
+    // Logout function.
+    // First change isOnline boolean of logging out user to false, then log user out
     const handleLogout = async () => {
         try {
             const payload = {
                 isOnline: false
             }
     
+            // Query all users with uid matching logged in user
             const colRef = collection(db, 'users');
             const q = query(colRef, where("uid", "==", user.uid))
+            // Get docs matching the query
             const userDocs = await getDocs(q)
+            // Map through retrieved docs and extract the ID and data
             const docs = userDocs.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     
+            // Run updateDoc method with the extracted ID of retrieved docs and the payload
             for(let rightDoc of docs) {
                 await updateDoc(doc(db, 'users', rightDoc.id), payload);
             }
@@ -93,9 +95,9 @@ const Home = () => {
             await logout();
             navigate('/login');
         } catch(err) {
-            // If error filter it through the regex, setError state to it and set
+            // If error setError state to it and set
             // open state to true.
-            //ErrorRegex(err, setError);
+            setError(err.message);
             setOpen(true);
         }
     }

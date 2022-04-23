@@ -25,8 +25,6 @@ import { useAuth } from '../../authContext/AuthContext';
 // Component imports
 import AuthImage from './AuthImage';
 import AuthPhone from './AuthPhone';
-// Error regex function import
-//import ErrorRegex from '../../utils/ErrorRegex';
 
 // MaterialUI imports
 import { TextField, Snackbar, InputAdornment, IconButton } from '@material-ui/core';
@@ -138,6 +136,9 @@ const Register = () => {
             // if an image was in fact uploaded. 
             await updateProfile(auth.currentUser, {displayName:username, photoURL});
 
+            // Add newly created user to the users collection, after its been created and updated, with
+            // a value of true for the isOnline key.
+            // We will use the users collection to retrieve all logged in users.
             const q = await collection(db, 'users')
             const payload = {
                 username: auth.currentUser.displayName,
@@ -145,12 +146,11 @@ const Register = () => {
                 avatar: auth.currentUser.photoURL,
                 isOnline: true
             }
-
             await addDoc(q, payload);
         } catch(err) {
-            // If error filter it through the regex, setError state to it and set
+            // If error setError state to it and set
             // open state to true.
-            //ErrorRegex(err, setError);
+            setError(err.message);
             setOpen(true);
         } 
         setLoading(false);

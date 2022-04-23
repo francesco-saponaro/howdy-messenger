@@ -21,8 +21,6 @@ import { useAuth } from '../../authContext/AuthContext';
 
 // Component imports
 import AuthPhone from './AuthPhone';
-// Error regex function import
-//import ErrorRegex from '../../utils/ErrorRegex'
 
 // MaterialUI imports
 import { TextField, Snackbar, InputAdornment, IconButton } from '@material-ui/core';
@@ -87,23 +85,28 @@ const Login = () => {
         }
     }
 
+    // Function to modify isOnline boolean of newly loggedin user to true.
     const handleOnline = async () => {
         const payload = {
             isOnline: true
         }
 
+        // Query all users with uid matching logged in user
         const colRef = collection(db, 'users');
         const q = query(colRef, where("uid", "==", user.uid))
+        // Get docs matching the query
         const userDocs = await getDocs(q)
+        // Map through retrieved docs and extract the ID and data
         const docs = userDocs.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
+        // Run updateDoc method with the extracted ID of retrieved docs and the payload
         for(let rightDoc of docs) {
             await updateDoc(doc(db, 'users', rightDoc.id), payload);
         }
     }
 
     // On page load and everytime theres a change in the user state, redirect user
-    // to home page. 
+    // to home page and also change its isOnline status to true. 
     // This is both to redirect the user when it logs in and to prevent the user to access
     // this page if already logged in.
     useEffect(() => {
@@ -124,9 +127,9 @@ const Login = () => {
         try {
             await login(email, password);
         } catch(err) {
-            // If error filter it through the regex, setError state to it and set
+            // If error setError state to it and set
             // open state to true.
-            //ErrorRegex(err, setError);
+            setError(err.message);
             setOpen(true);
         }
         setLoading(false);

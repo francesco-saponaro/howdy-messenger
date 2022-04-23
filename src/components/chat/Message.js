@@ -11,9 +11,6 @@ import { updateDoc, doc } from "firebase/firestore";
 // Use context custom hook import
 import { useAuth } from '../../authContext/AuthContext';
 
-// Error regex function import
-//import ErrorRegex from '../../utils/ErrorRegex';
-
 // Component imports
 import Date from '../layouts/Date'
 import Loader from '../layouts/Loader'
@@ -32,8 +29,6 @@ const Message = forwardRef(({ messageObj, chatMessages, index, messageId }, ref)
 
     // Boolean state to determine when to open Snackbar alert
     const [open, setOpen] = useState(false);
-
-    const linkRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
 
     // State to contain server-side error going in the Snackbar alert
     const [error, setError] = useState('');
@@ -86,9 +81,9 @@ const Message = forwardRef(({ messageObj, chatMessages, index, messageId }, ref)
 
                 setLoading(false);
             } catch(err) {
-                // If error filter it through the regex, setError state to it and set
+                // If error setError state to it and set
                 // open state to true.
-                //ErrorRegex(err, setError);
+                setError(err.message);
                 setOpen(true);
             }
         } else {
@@ -107,9 +102,9 @@ const Message = forwardRef(({ messageObj, chatMessages, index, messageId }, ref)
 
                 setLoading(false);
             } catch(err) {
-                // If error filter it through the regex, setError state to it and set
+                // If error setError state to it and set
                 // open state to true.
-                //ErrorRegex(err, setError);
+                setError(err.message);
                 setOpen(true);
             }
         }
@@ -156,14 +151,7 @@ const Message = forwardRef(({ messageObj, chatMessages, index, messageId }, ref)
                 <Card className={isLoggedInUser ? 'message__card--user' : 'message__card'}>
                     <CardContent>
                         <Typography variant='h5' component='h2' className='message__card--message'>                     
-                            {linkRegex.test(messageObj.message) 
-                                ? 
-                                <a href={messageObj.message} target='_blank'>
-                                    {messageObj.message}
-                                </a> 
-                                : 
-                                messageObj.message
-                            }
+                            {messageObj.message}
                         </Typography>
                     </CardContent>
                 </Card>
