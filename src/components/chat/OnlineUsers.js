@@ -5,6 +5,9 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { query, collection, onSnapshot, where } from "firebase/firestore";
 
+// MaterialUI imports
+import { Avatar } from '@material-ui/core';
+
 const OnlineUsers = () => {
 
     const [onlineUsers, setOnlineUsers] = useState([]);
@@ -25,7 +28,10 @@ const OnlineUsers = () => {
             <div className='online__users'>
                 {onlineUsers.map(user => (
                     <div className='online__users--img-container'>
-                        <img src={user.data.avatar} alt={user.data.username}></img>
+                        <a href={user.data.avatar} target="_blank">
+                            <Avatar className='online__users--img' alt={user.data.username} src={user.data.avatar} target="_blank" />
+                        </a>
+                       
                         <span className='online__users--online-icon'></span>
                     </div>
                 ))}

@@ -19,11 +19,12 @@
 }
 
 .online__users {
-    background-color: var(--marian-blue);
+    background-color: white;
     margin-top: .5rem;
     padding: .5rem 1.2rem;
     display: flex;
     align-items: center;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 
 .online__users--img-container {
@@ -31,19 +32,24 @@
     width: 30px;
     border-radius: 50%;
     position: relative;
+    margin-right: 10px;
 }
 
-.online__users--img-container img {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+.online__users--img-container:last-child {
+    margin-right: 0px;
+}
+
+.online__users--img {
+    height: 100%!important;
+    width: 100%!important;
+    border-radius: 50%!important;
+    object-fit: cover!important;
 }
 
 .online__users--online-icon {
     position: absolute;
-    bottom: -1px;
-    left: 17px;
+    bottom: 0px;
+    left: 21px;
     width: 6px;
     height: 6px;
     background-color: green;
@@ -61,6 +67,13 @@
     .online__users--img-container {
         height: 22px;
         width: 22px;
+        margin-right: 6px;
+    }
+
+    .online__users--online-icon {
+        left: 16px;
+        width: 5px;
+        height: 5px;
     }
 }
 
