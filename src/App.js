@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/chat/Home';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import NotFound from './components/errors/NotFound';
 
 // Protected Route import
 import ProtectedRoute from './utils/ProtectedRoute';
@@ -31,6 +32,8 @@ function App() {
             {/* Auth routes */}
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
+            {/* 404 route */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthContextProvider>
       </div>

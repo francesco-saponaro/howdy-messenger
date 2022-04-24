@@ -6,9 +6,12 @@
     width: 100%;
     font-size: 26px;
     background: linear-gradient(to right, var(--blue) 60%, var(--dodger-blue));
-    padding-top: .5rem;
     color: white;
     text-align: center;
+}
+
+.header {
+    padding: .5rem;
 }
 
 .logout-button {
@@ -20,7 +23,6 @@
 
 .online__users {
     background-color: white;
-    margin-top: .5rem;
     padding: .5rem 1.2rem;
     display: flex;
     align-items: center;

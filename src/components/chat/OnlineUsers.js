@@ -30,7 +30,7 @@ const OnlineUsers = () => {
     return (
         <>
         {/* Online users div */}
-        {onlineUsers &&
+        {onlineUsers.length > 0 &&
             <div className='online__users'>
                 {/* Online user avatar div */}
                 {onlineUsers.map(user => (

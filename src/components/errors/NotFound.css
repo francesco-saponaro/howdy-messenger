@@ -1,0 +1,32 @@
+.notfound-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    background: #F0F8FF;
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
+    height: 300px;
+    border: 1px solid var(--boeing-blue);
+}
+
+.notfound-header {
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--boeing-blue);
+}
+
+.notfound-btn {
+    margin-bottom: 0px;
+}
+
+.notfound-btn a {
+    color: white;
+}
+
