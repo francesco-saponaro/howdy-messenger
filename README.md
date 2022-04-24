@@ -1,11 +1,19 @@
 # HOWDY Messenger app
 ## Overview
-The purpose of this application was both to further practice my React skills and to create a catchy Frontend side.
-For the above reasons I have used Firebase to implement a Backend which greatly reduced my workload thanks to its fully functional features and rapid deployment process.
+The purpose of this application was both to further practice my React skills and to create a catchy Frontend side.  
 
-Along with a clean interface, transitions and animations, the application includes social media like features like emoticons, like and unlike messages, sending pictures and a list of online users.
+For the above reasons I have used Firebase to implement a Backend which greatly reduced my workload thanks to its fully functional features and rapid deployment process.   
 
-To manage the state, for such a small application, I have used Context API, since compared to Redux requires minimal setup and is a more light-weight solution for passing a single piece of data throughout the app.
+Along with a clean interface, transitions and animations, the application includes social media like features like emoticons, like and unlike messages, sending pictures and a list of online users.    
+
+To manage the state, for such a small application, I have used Context API, since compared to Redux requires minimal setup and is a more light-weight solution for passing a single piece of data throughout the app.   
+
+If you would like to test this app here is the [deployed version](https://messenger-app-faaff.web.app/) 
+
+You can use the below account to log in, or create your own on the sign up page:    
+Email: reactjs@test.com 
+Password: reactjs
+
 
 ## Features
 * Real time messaging app

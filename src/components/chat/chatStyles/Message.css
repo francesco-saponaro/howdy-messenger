@@ -38,7 +38,6 @@
     max-width:200px;
     height: 200px;
     border-radius: 20px;
-    background-color: black;
 }
 
 .message__image--user {
@@ -46,7 +45,6 @@
     max-width:200px;
     height: 200px;
     border-radius: 20px;
-    background-color: black;
 }
 
 .message__image img, .message__image--user img {
